@@ -96,7 +96,7 @@ def main():
     print(args.config)
     print(args.config)
 
-    if args.discover:
-        do_discover(args.config)
-    elif args.catalog or args.properties:
-        do_sync(args.config, args.catalog, args.state)
+    #if args.discover:
+    #    do_discover(args.config)
+    #elif args.catalog or args.properties:
+    #    do_sync(args.config, args.catalog, args.state)
