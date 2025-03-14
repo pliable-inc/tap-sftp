@@ -91,6 +91,7 @@ def main():
     if 'skip_rows' in args.config:
         args.config['skip_rows'] = int(args.config['skip_rows'])
 
+    print('xyz1')
     print(args.config)
     print(args.config)
     print(args.config)
