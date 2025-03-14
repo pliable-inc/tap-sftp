@@ -88,11 +88,8 @@ def main():
         # validate decryption configs
         utils.check_config(decrypt_configs, REQUIRED_DECRYPT_CONFIG_KEYS)
 
-    if 'skip_rows' in args.config:
-        args.config['skip_rows'] = int(args.config['skip_rows'])
-
-    LOGGER.info('xyz1')
-    LOGGER.info(args.config)
+    if 'skip_rows' in args.config['tables']:
+        args.config['tables']['skip_rows'] = int(args.config['tables']['skip_rows'])
 
     if args.discover:
         do_discover(args.config)
