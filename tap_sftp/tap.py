@@ -91,6 +91,10 @@ def main():
     if 'skip_rows' in args.config:
         args.config['skip_rows'] = int(args.config['skip_rows'])
 
+    print(args.config)
+    print(args.config)
+    print(args.config)
+
     if args.discover:
         do_discover(args.config)
     elif args.catalog or args.properties:
