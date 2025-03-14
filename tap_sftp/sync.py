@@ -39,10 +39,13 @@ def sync_stream(config, state, stream, sftp_client):
     if not files:
         return records_streamed
 
+    current_modified = modified_since
     for sftp_file in files:
         records_streamed += sync_file(sftp_file, stream, table_spec, config, sftp_client)
-        state = singer.write_bookmark(state, table_name, 'modified_since', sftp_file['last_modified'].isoformat())
-        singer.write_state(state)
+        if sftp_file['last_modified'] >= current_modified:
+            state = singer.write_bookmark(state, table_name, 'modified_since', sftp_file['last_modified'].isoformat())
+            singer.write_state(state)
+            current_modified = sftp_file['last_modified'] 
 
     LOGGER.info('Wrote %s records for table "%s".', records_streamed, table_name)
 
