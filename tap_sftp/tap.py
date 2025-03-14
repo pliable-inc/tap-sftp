@@ -91,12 +91,10 @@ def main():
     if 'skip_rows' in args.config:
         args.config['skip_rows'] = int(args.config['skip_rows'])
 
-    print('xyz1')
-    print(args.config)
-    print(args.config)
-    print(args.config)
+    LOGGER.info('xyz1')
+    LOGGER.info(args.config)
 
-    #if args.discover:
-    #    do_discover(args.config)
-    #elif args.catalog or args.properties:
-    #    do_sync(args.config, args.catalog, args.state)
+    if args.discover:
+        do_discover(args.config)
+    elif args.catalog or args.properties:
+        do_sync(args.config, args.catalog, args.state)
