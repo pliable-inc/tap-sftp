@@ -91,9 +91,6 @@ def main():
     if 'skip_rows' in args.config['tables'][0]:
         args.config['tables'][0]['skip_rows'] = int(args.config['tables'][0]['skip_rows'])
 
-    LOGGER.info('123c')
-    LOGGER.info(args.config)
-
     if args.discover:
         do_discover(args.config)
     elif args.catalog or args.properties:
